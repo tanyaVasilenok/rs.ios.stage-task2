@@ -52,7 +52,7 @@
         break;
     }
     
-    //if both arrays are not empty, the add number array to result array at index 0, and string array at index 1
+    //if both arrays are not empty, then add number array to result array at index 0, and string array at index 1
     while (![numberArray isEqualToArray:@[]] && ![stringArray isEqualToArray:@[]]) {
         [resultArray insertObject:numberArray atIndex:0];
         [resultArray insertObject:stringArray atIndex:1];
