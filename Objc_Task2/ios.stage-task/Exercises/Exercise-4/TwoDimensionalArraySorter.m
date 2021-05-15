@@ -61,7 +61,11 @@
         break;
     }
     
+<<<<<<< HEAD
     //if both arrays are not empty, then add number array to result array at index 0, and discending string array at index 1
+=======
+    //if both arrays are not empty, then add number array to result array at index 0, and string array at index 1
+>>>>>>> f77e8d7a5fcc82e58c209d87ac12daed1092b916
     while (![numberArray isEqualToArray:@[]] && ![stringArray isEqualToArray:@[]]) {
         [resultArray insertObject:sortedAscendingNumberArray atIndex:0];
         [resultArray insertObject:sortedDiscendingStringArray atIndex:1];
