@@ -14,7 +14,7 @@ int main(int argc, char * argv[]) {
         
         //For task2
         Pairs *pairs = [[Pairs alloc] init];
-        [pairs countPairs:@[@(1), @(2), @(3)] number:@(1)];
+        [pairs countPairs:@[@(2), @(2), @(3), @(4), @(5)] number:@(0)];
         
         //For task 5
         IPFormatConverter *ipConverter = [[IPFormatConverter alloc] init];

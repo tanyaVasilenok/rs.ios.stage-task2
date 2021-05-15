@@ -37,30 +37,37 @@
     }
     
     //sort both arrays
-    [numberArray sortUsingSelector:@selector(compare:)];
-    [stringArray sortUsingSelector:@selector(compare:)];
+    //ascending sorting of arrays of numbers
+    NSArray *sortedAscendingNumberArray = [numberArray sortedArrayUsingSelector:@selector(compare:)];
+    
+    //ascending sorting of arrays of strings
+    NSArray *sortedAscendingStringArray = [stringArray sortedArrayUsingSelector:@selector(compare:)];
+    
+    //discending sorting
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:NO];
+    
+    NSArray *sortedDiscendingStringArray = [stringArray sortedArrayUsingDescriptors:@[sortDescriptor]];
     
     //check if arrays are empty
     //if any of two arrays is empty, then add not empty array to result array
     while (![numberArray isEqualToArray:@[]] && [stringArray isEqualToArray:@[]]) {
-        [resultArray addObjectsFromArray:numberArray];
+        [resultArray addObjectsFromArray:sortedAscendingNumberArray];
         break;
     }
     
+    //add ascending array
     while ([numberArray isEqualToArray:@[]] && ![stringArray isEqualToArray:@[]]) {
-        [resultArray addObjectsFromArray:stringArray];
+        [resultArray addObjectsFromArray:sortedAscendingStringArray];
         break;
     }
     
-    //if both arrays are not empty, the add number array to result array at index 0, and string array at index 1
+    //if both arrays are not empty, then add number array to result array at index 0, and discending string array at index 1
     while (![numberArray isEqualToArray:@[]] && ![stringArray isEqualToArray:@[]]) {
-        [resultArray insertObject:numberArray atIndex:0];
-        [resultArray insertObject:stringArray atIndex:1];
+        [resultArray insertObject:sortedAscendingNumberArray atIndex:0];
+        [resultArray insertObject:sortedDiscendingStringArray atIndex:1];
         break;
     }
     
-    NSLog(@"number array is %@", numberArray);
-    NSLog(@"string array is %@", stringArray);
     NSLog(@"result array is %@", resultArray);
     
     return resultArray;
